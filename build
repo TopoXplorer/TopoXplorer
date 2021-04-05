@@ -1,0 +1,7 @@
+pip install -e .
+jupyter nbextension install --py --symlink --sys-prefix TopoXplorer
+jupyter nbextension enable --py --sys-prefix TopoXplorer
+jupyter labextension develop TopoXplorer --overwrite
+cd js
+yarn run build
+

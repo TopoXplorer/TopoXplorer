@@ -1,0 +1,55 @@
+{
+  "name": "TopoXplorer",
+  "version": "0.1.0",
+  "description": "A Custom Jupyter Widget Library",
+  "author": "Gromit Chan",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TopoXplorer/TopoXplorer.git"
+  },
+  "keywords": [
+    "jupyter",
+    "widgets",
+    "ipython",
+    "ipywidgets",
+    "jupyterlab-extension"
+  ],
+  "files": [
+    "lib/**/*.js",
+    "dist/*.js"
+  ],
+  "scripts": {
+    "clean": "rimraf dist/ && rimraf ../TopoXplorer/labextension/ && rimraf ../TopoXplorer/nbextension",
+    "prepublish": "yarn run clean && yarn run build:prod",
+    "build": "webpack --mode=development && yarn run build:labextension:dev",
+    "build:prod": "webpack --mode=production && yarn run build:labextension",
+    "build:labextension": "jupyter labextension build .",
+    "build:labextension:dev": "jupyter labextension build --development True .",
+    "watch": "webpack --watch --mode=development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@jupyterlab/builder": "^3.0.0",
+    "rimraf": "^2.6.1",
+    "webpack": "^5"
+  },
+  "dependencies": {
+    "@jupyter-widgets/base": "^1.1 || ^2 || ^3 || ^4",
+    "d3": "^6.5.0",
+    "datatables.net-jqui": "^1.10.24",
+    "jquery": "^3.5.1",
+    "jquery-ui": "^1.12.1",
+    "lodash": "^4.17.4"
+  },
+  "jupyterlab": {
+    "extension": "lib/labplugin",
+    "outputDir": "../TopoXplorer/labextension",
+    "sharedPackages": {
+      "@jupyter-widgets/base": {
+        "bundled": false,
+        "singleton": true
+      }
+    }
+  }
+}

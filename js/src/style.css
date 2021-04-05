@@ -1,0 +1,14 @@
+.toolbar {
+    min-height: 30px;
+}
+.graphRow{
+    width:100%;
+    border: solid lightgrey 1px;
+}
+
+.lasso { 
+    fill-rule: evenodd; 
+    fill-opacity: 0.1; 
+    stroke-width: 1.5; 
+    stroke: #000; 
+}
